@@ -14,11 +14,11 @@ Capybara.register_driver :poltergeist_debug do |app|
       window_size: [
           1280, 720
       ],
-      phantomjs_options: [
-          "--load-images=yes",
-          "--ignore-ssl-errors=yes",
-          "--web-security=false"
-      ]
+      # phantomjs_options: %w{
+      #     "--loa# d-images=yes"
+      #     "--ignore-ssl-errors=yes"
+      #     "--web-security=false"
+      # }
   }
   Capybara::Poltergeist::Driver.new(app, options)
 end

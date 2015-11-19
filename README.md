@@ -1,17 +1,18 @@
 # flow-test
 
+[flow-test](https://github.com/databox/flow-test) is are set of high-level integration tests of [Databox](http://databox.com) Connect Platform.
+
 ## Usage
 
+    docker build --rm=true -t databox/flow-test .
     docker run -ti databox/flow-test
 
 ## Development
 
+    docker run -ti -v `pwd`/./:/usr/src/app databox/flow-test
+    docker run -ti -v `pwd`/./:/usr/src/app \
+        databox/flow-test bash -l
 
-    docker build --rm=true -t databox/flow-test .
-    gem install bundler ; bundle
-    rspec
+## Authors
 
-
-## Make GIFs
-
-     convert   -delay 200   -loop 1 ./shots/*.jpg test.gif 
+- [Oto Brglez](https://github.com)

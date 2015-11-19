@@ -1,4 +1,6 @@
-/shots/
+/shots/*.png
+/shots/*.jpg
+/shots/*.gif
 
 *.gem
 *.rbc
