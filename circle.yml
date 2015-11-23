@@ -21,7 +21,6 @@ deployment:
     commands:
       - docker tag databox/flow-test registry.databox.com/qm:${CIRCLE_BRANCH/\//-}
       - docker push registry.databox.com/qm:${CIRCLE_BRANCH/\//-}
-
   production:
     branch: production
     commands:
