@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
-# gem 'poltergeist'
-gem 'rspec', require: true
-gem 'capybara', require: true
-gem 'capybara-webkit', require: true
-gem 'selenium-webdriver', require: true
-gem 'headless', require: true
+gem 'rspec'
+gem 'capybara'
+gem 'capybara-webkit'
+gem 'selenium-webdriver'
+gem 'headless'
+gem 'pry'

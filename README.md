@@ -4,14 +4,16 @@
 
 ## Usage
 
-    docker build --rm=true -t databox/flow-test .
-    docker run -ti databox/flow-test
+    make build
+    make run
 
 ## Development
 
-    docker run -ti -v `pwd`/./:/usr/src/app databox/flow-test
     docker run -ti -v `pwd`/./:/usr/src/app \
-        databox/flow-test bash -l
+      databox/flow-test rspec
+
+    docker run -ti -v `pwd`/./:/usr/src/app \
+      databox/flow-test bash -l
 
 ## Authors
 

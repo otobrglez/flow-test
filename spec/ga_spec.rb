@@ -4,15 +4,14 @@ GA_EMAIL="apps@databox.com"
 GA_PASS="data4all"
 
 RSpec.describe "GoogleAnalytics" do
-
-  it "login and connect" do
+  it "login and connect", type: :video do
     visit '/'
 
     expect(page).to have_selector('div.form-slider')
 
     within("div.form-slider") do
-      fill_in 'email', with: EMAIL
-      fill_in 'password', with: PASS
+      fill_in 'email', with: DATABOX_USER_EMAIL
+      fill_in 'password', with: DATABOX_USER_PASS
     end
 
     click_on 'Sign in'
@@ -55,5 +54,4 @@ RSpec.describe "GoogleAnalytics" do
     expect(page).to have_content "data fetched!"
     sleep 2
   end
-
 end

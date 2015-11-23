@@ -4,23 +4,18 @@ require 'capybara'
 require 'capybara/rspec'
 require 'headless'
 require 'selenium-webdriver'
+require 'pry'
 
-# require 'capybara/poltergeist'
-# require 'capybara/dsl'
+DATABOX_APP_HOST = ENV['DATABOX_APP_HOST'] || "https://new.databox.com"
+DATABOX_USER_EMAIL = ENV.fetch('DATABOX_USER_EMAIL')
+DATABOX_USER_PASS = ENV.fetch('DATABOX_USER_PASS')
 
-APP_HOST = "https://new.databox.com"
-EMAIL = 'oto@databox.com'
-PASS = 'karkoli123'
-
-Capybara.app_host = APP_HOST
-
+Capybara.app_host = DATABOX_APP_HOST
 Capybara.default_driver = :selenium
-
 Capybara.server_port = 3000
 Capybara.run_server = false #Whether start server when testing
-
 Capybara.javascript_driver = :selenium
-Capybara.default_max_wait_time = 60
+Capybara.default_max_wait_time = ENV.fetch('MAX_WAIT_TIME').to_i
 
 headless = Headless.new(
   display: 99,
@@ -45,21 +40,25 @@ end
 
 RSpec.configure do |config|
   config.before :all do
-    # page.driver.browser.manage.window.maximize
-    # page.driver.headers = {"User-Agent" => "Mozilla/6.0"}
-  end
-
-  config.before :all do
     headless.start
   end
 
   config.before :each do
     set_selenium_window_size(1280, 1024) if Capybara.current_driver == :selenium
-    # headless.video.start_capture
   end
 
-  config.after :each do
-    # headless.video.stop_and_save "test.mov"
+  config.around :each do |example|
+    if [:video].include? example.metadata[:type]
+      video_name = nil
+      video_name = example.metadata[:full_description].downcase.gsub(/[^\w-]/, "-")
+      headless.video.start_capture
+    end
+
+    example.run
+
+    if [:video].include? example.metadata[:type]
+      headless.video.stop_and_save "./video/#{video_name}.mov"
+    end
   end
 
   config.after :all do

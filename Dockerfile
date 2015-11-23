@@ -5,6 +5,10 @@ LABEL flow-test for Databox
 ENV QMAKE=/usr/bin/qmake-qt4
 ENV DISPLAY=:0.0
 
+ENV DATABOX_USER_EMAIL=oto@databox.com
+ENV DATABOX_USER_PASS=geslo123
+ENV MAX_WAIT_TIME=60
+
 RUN apt-get update -qq  && \
     apt-get install build-essential g++ git wget curl \
     build-essential chrpath libssl-dev libxft-dev \
