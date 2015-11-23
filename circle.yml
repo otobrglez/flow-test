@@ -13,7 +13,7 @@ dependencies:
 
 test:
   override:
-    - echo "no tests"
+    - echo "no tests just docker image building"
 
 deployment:
   staging:
