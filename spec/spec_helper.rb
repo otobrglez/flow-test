@@ -30,10 +30,4 @@ RSpec.configure do |config|
   config.before :each do
     page.driver.headers = {"User-Agent" => "Mozilla/6.0"}
   end
-
-  config.before :all do
-    #page.driver.headers = {
-    #    "User-Agent" => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36"
-    #}
-  end
 end
