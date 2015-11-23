@@ -19,10 +19,10 @@ deployment:
   staging:
     branch: master
     commands:
-      - docker tag databox/flow-test registry.databox.com/qm:${CIRCLE_BRANCH/\//-}
-      - docker push registry.databox.com/qm:${CIRCLE_BRANCH/\//-}
+      - docker tag databox/flow-test registry.databox.com/flow-test:${CIRCLE_BRANCH/\//-}
+      - docker push registry.databox.com/flow-test:${CIRCLE_BRANCH/\//-}
   production:
     branch: production
     commands:
-      - docker tag databox/flow-test registry.databox.com/qm:${CIRCLE_BRANCH/\//-}
-      - docker push registry.databox.com/qm:${CIRCLE_BRANCH/\//-}
+      - docker tag databox/flow-test registry.databox.com/flow-test:${CIRCLE_BRANCH/\//-}
+      - docker push registry.databox.com/flow-test:${CIRCLE_BRANCH/\//-}

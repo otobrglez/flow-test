@@ -4,8 +4,8 @@
 
 ## Usage
 
-    make build
-    make run
+    docker pull registry.databox.com/flow-test:master
+    docker run -h flow-test -m 2G -i registry.databox.com/flow-test:master
 
 ## (Default) Environment variables
 
@@ -19,11 +19,16 @@
 
 ## Development
 
+    make build
+    make run
+
     docker run -ti -v `pwd`/./:/usr/src/app \
       databox/flow-test rspec
 
     docker run -ti -v `pwd`/./:/usr/src/app \
       databox/flow-test bash -l
+
+
 
 ## Authors
 
