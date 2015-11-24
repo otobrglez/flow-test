@@ -39,7 +39,10 @@
     docker run -ti -v `pwd`/./:/usr/src/app \
       databox/flow-test bash -l
 
+## Extra
 
+    # Nginx to serve *.mov
+    docker run -v `pwd`:/usr/share/nginx/html:ro -p 9009:80 nginx
 
 ## Authors
 

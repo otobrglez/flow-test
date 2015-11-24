@@ -54,20 +54,8 @@ RSpec.configure do |config|
     if [:video].include?(example.metadata[:type]) && WITH_VIDEO == 1
       video_name = nil
       video_name = example.metadata[:full_description].downcase.gsub(/[^\w-]/, "-")
-      html_file = "./video/#{video_name}.html"
       video_file = "./video/#{video_name}.mov"
-
-      File.open(html_file, 'w') do |file|
-        file.write("
-<html><title>Video Recording</title></html>
-<style type='text/css'>html, body {width: 100%; margin: 0; padding: 0;} body { background-color: #000; }</style>
-<body>
-<video src='#{video_name}.mov' style='height: 100%; width:100%' autoplay controls>
-</body>
-</html>")
-      end
-
-      $stdout.puts "---> #{TEST_HOST}video/#{video_name}.html"
+      $stdout.puts "---> #{TEST_HOST}video/#{video_name}.mov"
       headless.video.start_capture
     end
 
