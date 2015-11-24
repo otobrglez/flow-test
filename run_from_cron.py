@@ -4,7 +4,7 @@ import smtplib
 import subprocess
 
 DOCKER_IMAGE = "databox/flow-test"
-DATABOX_USER_EMAIL = "dodo@dodo.com"
+DATABOX_USER_EMAIL = "oto@databox.com"
 
 MAIL_SENDER = 'otobrglez@gmail.com'
 MAIL_RECEIVERS = ['oto+flow-test@databox.com', 'dev@databox.com']
@@ -45,4 +45,6 @@ if __name__ == '__main__':
   if past_run[0] == 1:
     send_mail(past_run[1])
     print "Mail with error was successfuly sent!"
+  else:
+    print "Done."
 
