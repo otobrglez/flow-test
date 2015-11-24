@@ -1,6 +1,6 @@
 # flow-test
 
-[flow-test](https://github.com/databox/flow-test) are set of high-level integration tests for [Databox](http://databox.com) Connect Platform front-end flows.
+[flow-test](https://github.com/databox/flow-test) are set of high-level integration tests for [Databox](http://databox.com) Connect Platform.
 
 [![Circle CI](https://circleci.com/gh/databox/flow-test/tree/master.svg?style=svg&circle-token=db81e31d79a77fd1f4953b537a6d8bc4c658f486)](https://circleci.com/gh/databox/flow-test/tree/master)
 
