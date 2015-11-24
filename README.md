@@ -4,11 +4,18 @@
 
 ## Usage
 
-    docker run -ti -v `pwd`/video:/usr/src/app/video -m 2G registry.databox.com/flow-test:master
+    # With video recordings
+    docker run --rm=true -v `pwd`/video:/usr/src/app/video \
+      -m 2G \
+      -i \
+      registry.databox.com/flow-test:master
 
+    # Without video recordings
+    docker run --rm=true -ti -e WITH_VIDEO=0 -m 2G registry.databox.com/flow-test:master
 
+> [run_from_cron.py](run_from_cron.py) is wrapper for `cron` to help run this script and report about its execution.
 
-## (Default) Environment variables
+## (Default Docker) Environment variables
 
     DATABOX_APP_HOST=https://new.databox.com
     DATABOX_USER_EMAIL=oto@databox.com
