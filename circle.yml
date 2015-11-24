@@ -13,7 +13,7 @@ dependencies:
 
 test:
   override:
-    - echo "no tests just docker image building"
+    - "docker run -v `pwd`:/usr/src/app -ti databox/flow-test rspec"
 
 deployment:
   staging:
