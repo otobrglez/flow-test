@@ -22,6 +22,7 @@
     DATABOX_USER_PASS=geslo123
     WITH_VIDEO=1
     MAX_WAIT_TIME=60
+    TEST_HOST=http://dev1.host.development:9009/
 
 > Google Analytic specific environment variables / [suite is here](spec/ga_spec.rb).
 

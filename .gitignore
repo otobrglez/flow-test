@@ -1,3 +1,4 @@
+video/*.html
 video/*.mov
 *.mov
 /shots/*.png
