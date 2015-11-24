@@ -18,13 +18,15 @@ Capybara.run_server = false
 Capybara.javascript_driver = :selenium
 Capybara.default_max_wait_time = ENV.fetch('MAX_WAIT_TIME').to_i
 
+Capybara.automatic_reload = false
+
 headless = Headless.new(
   display: 99,
   autopick: true,
   reuse: false,
   # destroy_at_exit: true,
   video: {
-  #  frame_rate: 12,
+    frame_rate: 20,
     codec: 'libx264'
   }
 )

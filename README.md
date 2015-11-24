@@ -4,8 +4,9 @@
 
 ## Usage
 
-    docker pull registry.databox.com/flow-test:master
-    docker run -h flow-test -m 2G -i registry.databox.com/flow-test:master
+    docker run -ti -v `pwd`/video:/usr/src/app/video -m 2G registry.databox.com/flow-test:master
+
+
 
 ## (Default) Environment variables
 
