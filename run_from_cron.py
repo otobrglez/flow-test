@@ -6,6 +6,7 @@ import urllib2
 import urllib
 
 DOCKER_IMAGE = "databox/flow-test"
+DOCKER_IMAGE = "registry.databox.com/flow-test:master"
 MAIL_SENDER = 'oto+flow-test@databox.com'
 MAIL_RECEIVERS = ['oto+flow-test@databox.com', 'dev@databox.com']
 MAIL_LOGIN = "dbox_report"
@@ -14,7 +15,7 @@ SMTP_HOST = 'smtp.sendgrid.net'
 SMTP_PORT = 587
 
 def run_container():
-  cmd = "docker run -v `pwd`:/usr/src/app MAX_WAIT_TIME=60 -i {0} rspec".format(DOCKER_IMAGE)
+  cmd = "docker run --rm -m 2G -v `pwd`:/usr/src/app -e MAX_WAIT_TIME=60 -i {0} rspec".format(DOCKER_IMAGE)
   child = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True)
   (out, err) = child.communicate()
   return_code = child.returncode
@@ -77,4 +78,3 @@ if __name__ == '__main__':
     print "Mail with error was successfuly sent!"
   else:
     print "Done."
-
