@@ -14,7 +14,7 @@ SMTP_HOST = 'smtp.sendgrid.net'
 SMTP_PORT = 587
 
 def run_container():
-  cmd = "docker run -v `pwd`:/usr/src/app -e DATABOX_USER_EMAIL=dd@dd.com -e MAX_WAIT_TIME=10 -i {0} rspec".format(DOCKER_IMAGE)
+  cmd = "docker run -v `pwd`:/usr/src/app MAX_WAIT_TIME=60 -i {0} rspec".format(DOCKER_IMAGE)
   child = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True)
   (out, err) = child.communicate()
   return_code = child.returncode

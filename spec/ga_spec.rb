@@ -40,7 +40,7 @@ RSpec.describe "GoogleAnalytics" do
     end
 
     connect_window = window_opened_by do
-      page.execute_script('$("#servicesList li:nth(1) a").trigger("click")')
+      page.execute_script("$('#servicesList li[data-ds_type=\\'GoogleAnalytics\\'] a').trigger('click')")
     end
 
     within_window connect_window do
@@ -55,11 +55,14 @@ RSpec.describe "GoogleAnalytics" do
       find("button", text:/Allow|Dovoli/i).click
     end
 
-    # We come back grom popup-callback
+    # We come back from popup-callback
     find("a.greenbutton").click
     expect(page).to have_content "Please select web property"
     page.execute_script('$("form.profile label:last()").trigger("click")')
     find("a.greenbutton").click
+
+    sleep 2
+
     expect(page).to have_content "All Web Site Data"
     page.execute_script('$("form.profile label:last()").trigger("click")')
     find("a.greenbutton").click
